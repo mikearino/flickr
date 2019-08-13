@@ -1,0 +1,9 @@
+<%= @user.email %>
+<% if @user.image.attached? %>
+  <%= image_tag @user.image %>
+  <p>My image</p>
+<% else %>
+  <p>Image failure. Imagine that. [insert micro-aggression here]</p>
+<% end %>
+
+<%= link_to 'Add photo', edit_user_path(@user) %>
