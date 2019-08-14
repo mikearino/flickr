@@ -1,0 +1,7 @@
+<%= form_for @user, {:multipart => true} do |f| %>
+  <%= f.fields_for :pics do |ff| %>
+    <%= ff.label "Image Upload" %>
+    <%= ff.file_field :image %>
+    <%= ff.submit "Upload" %>
+  <% end %>
+<% end %>

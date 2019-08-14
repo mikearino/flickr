@@ -1,9 +1,12 @@
-<%= @user.email %>
-<% if @user.image.attached? %>
-  <%= image_tag @user.image %>
-  <p>My image</p>
-<% else %>
-  <p>Image failure. Imagine that. [insert micro-aggression here]</p>
-<% end %>
+<h2><%= @user.email %> pics:</h2>
+  <% if @user.pics.any? %>
+  <% @user.pics.each do |pic| %>
+    <div class="image-container">
+      <%= link_to image_tag(pic.image), user_pic_path(@user, pic.id) %>
+    </div>
+  <% end %>
+  <% else %>
+  <p>No images found.</p>
+  <% end %>
 
-<%= link_to 'Add photo', edit_user_path(@user) %>
+<%= link_to 'Add photo', new_user_pic_path(@user) %>

@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.image.attach(params[:user][:image])
+    @pic = current_user.pics.new
+    @pic.image.attach(params[:user][:pics][:image])
     current_user.save
     redirect_to user_path(current_user)
   end

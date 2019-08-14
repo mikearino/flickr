@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :images
 
   resources :users do
-    resources :images
+    resources :pics
   end
 
   post '/users/:id' => 'users#create'
