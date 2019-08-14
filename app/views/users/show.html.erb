@@ -3,6 +3,9 @@
   <% @user.pics.each do |pic| %>
     <div class="image-container">
       <%= link_to image_tag(pic.image), user_pic_path(@user, pic.id) %>
+      <p>Tags: <% pic.tags.each do |x|%>
+      <%= x.tag %>
+    <% end %></p>
     </div>
   <% end %>
   <% else %>

@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     @pic = current_user.pics.new
     @pic.image.attach(params[:user][:pics][:image])
     current_user.save
+    if params[:user][:pics][:tag]
+      tag = Tag.new(:tag => params[:user][:pics][:tag])
+      tag.save
+      @pic.tags.push(tag)
+      @pic.save
+    end
     redirect_to user_path(current_user)
   end
 
